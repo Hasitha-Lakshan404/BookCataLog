@@ -5,6 +5,7 @@ $(window).on('load', function () {
     $('#adminViewAllBook').css('display','none');
 
     loadBooks("allBookDetail");
+    loadAllBookCards("allBookDetail")
 })
 
 
