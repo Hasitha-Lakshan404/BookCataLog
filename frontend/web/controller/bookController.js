@@ -38,7 +38,7 @@ function addBook(bid) {
         success: function (resp) {
             /*need to get user id from resp*/
             if (resp.status === 200) {
-                alert(resp.message);
+                // alert(resp.message);
 
                 uploadBookImage(bid);
 
@@ -152,9 +152,9 @@ function viewUpdate() {
         success: function (res) {
             loadBooks("allBookDetail");
             if (res.status === 200) {
-                alert(res.message)
+                // alert(res.message)
             } else {
-                alert('Updated!');
+
                 clearBookTextUpdate();
             }
         }
