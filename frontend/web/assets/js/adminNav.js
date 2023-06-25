@@ -21,7 +21,7 @@ $('#adViewBookView').click(function () {
     $('#adminAddBook').css('display','none');
     $('#adminDashboard').css('display','none');
     $('#adminViewAllBook').css('display','block')
-
+    loadBooks("allBookDetail");
     /*ID, Category, Title, Author, Price, Image*/
 
 })
