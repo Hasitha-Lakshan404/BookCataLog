@@ -152,6 +152,7 @@ function viewUpdate() {
         success: function (res) {
             loadBooks("allBookDetail");
             if (res.status === 200) {
+                clearBookTextUpdate();
                 // alert(res.message)
             } else {
 
@@ -168,12 +169,22 @@ function viewUpdate() {
 
 /*Delete*/
 $("#btnDeleteBook").click(function () {
-    let bid = $("#save_book_Id").val()
-    addBook(bid);
+    $.ajax({
+        url:"http://localhost:8080/api/v1/book?id="+$("#update-book-Id").val(),
+        method:"delete",
+        success(resp){
+            loadBooks("allBookDetail");
+        }
+    });
+    clearBookTextUpdate();
 
 })
 
 
 function clearBookTextUpdate() {
+    $('#update-book-Id,#update-book-category,#update-book-Title,#update-book-Author,#update-book-price').val("");
+}
 
+function loadAllBookCards() {
+    
 }
