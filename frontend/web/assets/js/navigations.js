@@ -6,6 +6,7 @@ $(window).on('load', function () {
 
     loadBooks("allBookDetail");
     loadAllBookCards("allBookDetail")
+    loadAllBookCards2("allBookDetail")
 })
 
 

@@ -3,6 +3,8 @@ $('#adDash').click(function () {
     $('#adminAddBook').css('display','none');
     $('#adminDashboard').css('display','block');
     $('#adminViewAllBook').css('display','none')
+
+    loadAllBookCards2("allBookDetail");
 })
 
 

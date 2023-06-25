@@ -291,3 +291,109 @@ $('#searchInput').keypress(function(event) {
 
     }
 });
+
+function loadAllBookCards2(path) {
+    $("#bookCardContainer2").empty();
+
+    $.ajax({
+        url: baseUrl + "book/" + path,
+        method: "GET",
+        success: function (resp) {
+            for (const book of resp.data) {
+                let div = `<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div class="icon"><img  class="bookCardMainImg" alt ="" src="assets/images/book1C.jpg"
+                                            style="width: 200px;height: 248px;"></i></div>
+                    <h4><a href="">${book.title}</a></h4>
+                    <p>${book.author}</p>
+                    
+                    <!--Title-->
+                    <div class="row">
+                                <div class="d-flex align-items-sm-stretch col-xl-6 justify-content-center"
+                                     style="font-size: 13px">Category
+                                </div>
+                                
+                                <div class="d-flex align-items-sm-stretch col-xl-6 justify-content-center"
+                                     style="font-size: 13px">LKR
+                                </div>
+                    </div>
+                    
+                    <!--Price-->
+                            <div class="row">
+                                <div class="d-flex align-items-sm-stretch col-xl-6 text-danger justify-content-center"
+                                     style="font-weight: 900">${book.category}
+                                </div>
+                                
+                                <div class="d-flex align-items-sm-stretch col-xl-6 text-danger justify-content-center"
+                                     style="font-weight: 900">${book.price}
+                                </div>
+                            </div>
+                    
+                </div>
+            </div>`;
+
+
+                $("#bookCardContainer2").append(div);
+
+
+            }
+
+        }
+    });
+}
+
+$('#searchInput2').keypress(function(event) {
+    if (event.which === 13) {
+        const searchWord = $(this).val();
+
+        $("#bookCardContainer2").empty();
+
+        $.ajax({
+            url: baseUrl + `book/searchBooks?p=${encodeURIComponent(searchWord)}`,
+            method: "GET",
+            success: function (resp) {
+                for (const book of resp.data) {
+                    let div = `<div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div class="icon"><img  class="bookCardMainImg" alt ="" src="assets/images/book1C.jpg"
+                                            style="width: 200px;height: 248px;"></i></div>
+                    <h4><a href="">${book.title}</a></h4>
+                    <p>${book.author}</p>
+                    
+                    <!--Title-->
+                    <div class="row">
+                                <div class="d-flex align-items-sm-stretch col-xl-6 justify-content-center"
+                                     style="font-size: 13px">Category
+                                </div>
+                                
+                                <div class="d-flex align-items-sm-stretch col-xl-6 justify-content-center"
+                                     style="font-size: 13px">LKR
+                                </div>
+                    </div>
+                    
+                    <!--Price-->
+                            <div class="row">
+                                <div class="d-flex align-items-sm-stretch col-xl-6 text-danger justify-content-center"
+                                     style="font-weight: 900">${book.category}
+                                </div>
+                                
+                                <div class="d-flex align-items-sm-stretch col-xl-6 text-danger justify-content-center"
+                                     style="font-weight: 900">${book.price}
+                                </div>
+                            </div>
+                    
+                </div>
+            </div>`;
+
+
+                    $("#bookCardContainer2").append(div);
+
+
+                }
+
+            }
+        });
+
+
+    }
+});
